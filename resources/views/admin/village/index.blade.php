@@ -33,6 +33,9 @@
                                 <td>
                                     <a href="{{route('admin.village.show',$village->id)}}">{{$village->name}}</a>
                                 </td>
+                                <td>
+
+                                </td>
 
                             </tr>
                         @endforeach
