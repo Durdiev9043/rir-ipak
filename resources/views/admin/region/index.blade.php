@@ -23,6 +23,10 @@
 
                             <th class="content_admin" scope="col">name</th>
 
+                            <th class="content_admin" scope="col">kasanchilar soni</th>
+                            <th class="content_admin" scope="col">kasanchilar olgani</th>
+                            <th class="content_admin" scope="col">kasanchillar rejasi</th>
+                            <th class="content_admin" scope="col">topshirgani</th>
                             <th class="content_admin" scope="col">Действие</th>
                         </tr>
                         </thead>
@@ -32,7 +36,34 @@
                                 <td>
                                     <a href="{{route('admin.region.show',$region->id)}}">{{$region->name}}</a>
                                 </td>
-                                <td>{{$region->name}}</td>
+                                <td>
+
+                                    <?php
+                                    $soni=0;
+                                    $olgan=0;
+                                    $topshirish_rejasi=0;
+                                    $topshirgani=0;
+                                        foreach ($staffes as $staff) {
+                                            if ($staff->village_id==$region->id){
+                                                $soni=$soni+1;
+                                                $olgan=$olgan+($staff->olgan_gr);
+                                                $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
+                                                $topshirgani=$topshirgani+($staff->topshirgani);
+                                            };
+                                        };
+                                    ?>
+                                    {{ $soni }}
+                               </td>
+                               <td>
+                                    {{ $olgan }}
+                               </td>
+                               <td>
+                                   {{ $topshirish_rejasi }}
+                               </td>
+                               <td>
+                                    {{ $topshirgani }}
+                               </td>
+
 
 
                             </tr>

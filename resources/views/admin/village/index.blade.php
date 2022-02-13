@@ -18,7 +18,7 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                    <table width="90%" class="table  table-bordered">
+                    <table width="90%" id="myTable" class="table  table-bordered">
                         <thead>
                         <tr>
 
@@ -78,5 +78,11 @@
     </div>
 
 
+<script src="{{asset('/assets/js/core/jquery.3.2.1.min.js')}}"></script>
+<script>    
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 @endsection
 

@@ -18,7 +18,8 @@ class RegionController extends Controller
     public function index()
     {
         $regions=Region::all();
-        return view('admin.region.index',['regions'=>$regions]);
+        $staffes=Staff::all();
+        return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
     }
 
     /**
