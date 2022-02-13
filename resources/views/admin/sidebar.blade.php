@@ -5,13 +5,13 @@
                 <li class="nav-item {{  request()->routeIs('admin.users.index') ? 'active' : '' }}">
                     <a href="{{route('admin.users.index')}}">
                         <i class="fas fa-user"></i>
-                        <p>Пользователь</p>
+                        <p>Foydalanuvchilar</p>
                     </a>
                 </li>
                 <li class="nav-item {{  request()->routeIs('admin.region.index') ? 'active' : '' }}">
                     <a href="{{route('admin.region.index')}}">
                         <i class="fas fa-user"></i>
-                        <p>Пользователь</p>
+                        <p>tumanlar</p>
                     </a>
                 </li>
 

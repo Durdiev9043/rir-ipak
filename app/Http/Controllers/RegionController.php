@@ -52,6 +52,9 @@ class RegionController extends Controller
     {
         $villages=Village::all()->where('region_id','=',$id);
         $staffes=Staff::all();
+        
+        return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
+
 //        $xz = DB::table('staff')->select([
 //            'staff.village_id','olgan_gr'
 //        ])
@@ -59,8 +62,7 @@ class RegionController extends Controller
 //            ->where('staff.village_id','=','villages_id')
 //            ->get();
 //
-
-        return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
+       
     }
 
     /**

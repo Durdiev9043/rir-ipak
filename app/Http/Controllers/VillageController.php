@@ -45,7 +45,8 @@ class VillageController extends Controller
 
     public function show($id)
     {
-        $staffes=Staff::where('id',$id);
+        $staffes=Staff::all()->where('village_id','=',$id);
+        
         return view('admin.staff.index',['staffes'=>$staffes]);
     }
 

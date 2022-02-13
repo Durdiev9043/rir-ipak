@@ -16,8 +16,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staffes=Staff::all();
-        return view('admin.staff.index',['staffes'=>$staffes]);
+        //
     }
 
     /**
@@ -27,7 +26,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        $villages=Village::all();
+        $villages=Village:all();
         return view('admin.staff.create',['villages'=>$villages]);
     }
 
@@ -40,7 +39,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         Staff::create($request->all());
-        return redirect()->route('admin.staff.index')->with('success', 'сотрудники успешно созданы.');
+        return redirect()->back();
     }
 
     /**

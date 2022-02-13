@@ -17,6 +17,7 @@ class CreateStaffTable extends Migration
             $table->id();
             $table->string('fullname');
             $table->unsignedBigInteger('village_id');
+            $table->unsignedBigInteger('region_id');
             $table->string('passport')->nullable()->unique();
             $table->integer('inn')->nullable()->unique();
             $table->float('algan_qutisi')->nullable();
@@ -26,6 +27,7 @@ class CreateStaffTable extends Migration
             $table->timestamps();
 
             $table->foreign('village_id')->references('id')->on('villages');
+            $table->foreign('region_id')->references('id')->on('regions');
         });
     }
 

@@ -1,3 +1,4 @@
+
 @extends('admin.master')
 @section('content')
 
@@ -22,20 +23,49 @@
                         <tr>
 
                             <th class="content_admin" scope="col">name</th>
+                            <th class="content_admin" scope="col">kasanchilar soni</th>
+                            <th class="content_admin" scope="col">kasanchilar olgani</th>
+                            <th class="content_admin" scope="col">kasanchillar rejasi</th>
+                            <th class="content_admin" scope="col">topshirgani</th>
 
                             <th class="content_admin" scope="col">Действие</th>
                         </tr>
                         </thead>
                         <tbody>
+
                         @foreach($villages as $village)
                             <tr>
 
                                 <td>
                                     <a href="{{route('admin.village.show',$village->id)}}">{{$village->name}}</a>
                                 </td>
-                                <td>
+                               <td>
 
-                                </td>
+                                    <?php
+                                    $soni=0;
+                                    $olgan=0;
+                                    $topshirish_rejasi=0;
+                                    $topshirgani=0;
+                                        foreach ($staffes as $staff) {
+                                            if ($staff->village_id==$village->id){
+                                                $soni=$soni+1;
+                                                $olgan=$olgan+($staff->olgan_gr);
+                                                $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
+                                                $topshirgani=$topshirgani+($staff->topshirgani);
+                                            };
+                                        };
+                                    ?>
+                                    {{ $soni }}
+                               </td>
+                               <td>
+                                    {{ $olgan }}
+                               </td>
+                               <td>
+                                   {{ $topshirish_rejasi }}
+                               </td>
+                               <td>
+                                    {{ $topshirgani }}
+                               </td>
 
                             </tr>
                         @endforeach
@@ -46,9 +76,7 @@
             </div>
         </div>
     </div>
-    <script>
 
-    </script>
 
 @endsection
 

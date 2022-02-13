@@ -21,21 +21,21 @@
                         <thead>
                         <tr>
 
-                            <th class="content_admin" scope="col">ismi familyasi</th>
-                            <th class="content_admin" scope="col">passport</th>
-                            <th class="content_admin" scope="col">inn</th>
-                            <th class="content_admin" scope="col">olgan qutisi</th>
-                            <th class="content_admin" scope="col">olgan gr</th>
-                            <th class="content_admin" scope="col">topshirish rejasi</th>
-                            <th class="content_admin" scope="col">topshirgani</th>
-                            <th class="content_admin" scope="col">Действие</th>
+                            <th  scope="col">ismi familyasi</th>
+                            <th  scope="col">passport</th>
+                            <th  scope="col">inn</th>
+                            <th  scope="col">olgan qutisi</th>
+                            <th  scope="col">olgan gr</th>
+                            <th  scope="col">topshirish rejasi</th>
+                            <th  scope="col">topshirgani</th>
+                            <th  scope="col">Действие</th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach($staffes as $staff)
                                 <tr>
 
-                                    <td>{{$staff->fullname}}</td>
+                                    <td >{{$staff->fullname}}</td>
                                     <td>{{$staff->passport}}</td>
                                     <td>{{$staff->inn}}</td>
                                     <td>{{$staff->algan_qutisi}}</td>
