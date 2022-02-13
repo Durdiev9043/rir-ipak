@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,9 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('users',UsersController::class);
     Route::resource('region',RegionController::class);
     Route::resource('village',VillageController::class);
+    Route::resource('staff',StaffController::class);
+    Route::post('driver',function ($id){
+        $x=\App\Models\Staff::where('village_id','=',$id);
+        return $x->sum('village_id');
+    } )->name('driver');
 });

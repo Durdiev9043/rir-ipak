@@ -15,7 +15,17 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
+            $table->string('fullname');
+            $table->unsignedBigInteger('village_id');
+            $table->string('passport')->nullable()->unique();
+            $table->integer('inn')->nullable()->unique();
+            $table->float('algan_qutisi')->nullable();
+            $table->float('olgan_gr');
+            $table->float('topshirish_rejasi')->nullable();
+            $table->float('topshirgani')->nullable();
             $table->timestamps();
+
+            $table->foreign('village_id')->references('id')->on('villages');
         });
     }
 

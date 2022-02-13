@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
 use App\Models\Region;
+use Illuminate\Support\Facades\DB;
 
 class RegionController extends Controller
 {
@@ -49,7 +51,16 @@ class RegionController extends Controller
     public function show($id)
     {
         $villages=Village::all()->where('region_id','=',$id);
-        return view('admin.village.index',['villages'=>$villages]);
+        $staffes=Staff::all();
+//        $xz = DB::table('staff')->select([
+//            'staff.village_id','olgan_gr'
+//        ])
+//            ->join('staff', 'village_id', '=', 'villages.id')
+//            ->where('staff.village_id','=','villages_id')
+//            ->get();
+//
+
+        return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
     }
 
     /**

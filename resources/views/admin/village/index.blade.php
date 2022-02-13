@@ -29,21 +29,23 @@
                         <tbody>
                         @foreach($villages as $village)
                             <tr>
-                                <td>
-                                    <a href="{{route('admin.region.show',$village->id)}}">{{$village->name}}</a>
-                                </td>
-                                <td>{{$village->name}}</td>
 
+                                <td>
+                                    <a href="{{route('admin.village.show',$village->id)}}">{{$village->name}}</a>
+                                </td>
 
                             </tr>
                         @endforeach
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    <script>
 
+    </script>
 
 @endsection
 

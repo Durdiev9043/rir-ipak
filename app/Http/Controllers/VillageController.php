@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Region;
+use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
 
@@ -36,22 +37,16 @@ class VillageController extends Controller
      */
     public function store(Request $request)
     {
-        Village::create([
-            'region_id'=>$request->region_id,
-            'name'=>$request->name,
-        ]);
+        $village=new Village();
+        $village->create($request->all());
         return redirect()->route('admin.region.show');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        $staffes=Staff::where('id',$id);
+        return view('admin.staff.index',['staffes'=>$staffes]);
     }
 
     /**

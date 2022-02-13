@@ -14,4 +14,8 @@ class Village extends Model
     public function region(){
         return $this->belongsTo(Region::class);
     }
+
+    public function staff(){
+        return $this->belongsTo(Staff::class);
+    }
 }

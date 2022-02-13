@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-9"><h1 class="card-title">сотрудники</h1></div>
                     <div class="col-md-1">
-                        <a class="btn btn-primary" href="{{route('staff.create')}}">
+                        <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
@@ -21,12 +21,13 @@
                         <thead>
                         <tr>
 
-                            <th class="content_admin" scope="col">name</th>
-                            <th class="content_admin" scope="col">surname</th>
-                            <th class="content_admin" scope="col">работа</th>
-                            <th class="content_admin" scope="col">description_ru</th>
-                            <th class="content_admin" scope="col">description_en</th>
-                            <th class="content_admin" scope="col">description_ru</th>
+                            <th class="content_admin" scope="col">ismi familyasi</th>
+                            <th class="content_admin" scope="col">passport</th>
+                            <th class="content_admin" scope="col">inn</th>
+                            <th class="content_admin" scope="col">olgan qutisi</th>
+                            <th class="content_admin" scope="col">olgan gr</th>
+                            <th class="content_admin" scope="col">topshirish rejasi</th>
+                            <th class="content_admin" scope="col">topshirgani</th>
                             <th class="content_admin" scope="col">Действие</th>
                         </tr>
                         </thead>
@@ -34,17 +35,18 @@
                             @foreach($staffes as $staff)
                                 <tr>
 
-                                    <td>{{$staff->name}}</td>
-                                    <td>{{$staff->surname}}</td>
-                                    <td>{{$staff->job}}</td>
-                                    <td>{{$staff->description_ru}}</td>
-                                    <td>{{$staff->description_en}}</td>
-                                    <td>{{$staff->description_uz}}</td>
+                                    <td>{{$staff->fullname}}</td>
+                                    <td>{{$staff->passport}}</td>
+                                    <td>{{$staff->inn}}</td>
+                                    <td>{{$staff->algan_qutisi}}</td>
+                                    <td>{{$staff->olgan_gr}}</td>
+                                    <td>{{$staff->topshirish_rejasi}}</td>
+                                    <td>{{$staff->topshirgani}}</td>
                                     <td>
-                                        <form action="{{ route('staff.destroy',$staff ->id) }}" method="POST">
+                                        <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-warning btn-sm" href="{{ route('staff.edit',$staff->id) }}">
+                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.staff.edit',$staff->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
