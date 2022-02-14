@@ -21,37 +21,53 @@
                     @endif
 
 
-                    <form action="{{route('staff.update',$id)}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.staff.update',$staff->id)}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label for="number">maxallani tanlang</label>
+                            <select class="custom-select" id="price_id" name="region_id">
+                                    <option value="{{$staff->region->id}}">{{$staff->region->name}}</option>
+                                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="number">maxallani tanlang</label>
+                            <select class="custom-select" id="price_id" name="village_id">
+
+                                    <option value="{{$staff->village->id}}">{{$staff->village->name}}</option>
+                             
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="header_ru">имя</label>
-                            <input type="text" name="name" class="form-control" id="header_ru" placeholder="имя">
+                            <input type="text" name="fullname" value="{{$staff->fullname}}" class="form-control" id="header_ru" placeholder="toliq ism familya">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">фамиля</label>
-                            <input type="text" name="surname" class="form-control" id="header_ru" placeholder="фамиля">
+                            <label for="header_ru">passport seria va raqami</label>
+                            <input type="text" name="passport" value="{{$staff->passport}}" class="form-control" id="header_ru" placeholder="фамиля">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">работа</label>
-                            <input type="text" name="job" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">inn</label>
+                            <input type="text" name="inn" value="{{$staff->inn}}" class="form-control" id="header_ru" placeholder="работа">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">olgan_qutisi</label>
+                            <input type="text" name="algan_qutisi" value="{{$staff->algan_qutisi}}" class="form-control" id="header_ru">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">olgan_gr</label>
+                            <input type="text" name="olgan_gr" value="{{$staff->olgan_gr}}" class="form-control" id="header_ru">
                         </div>
 
                         <div class="form-group">
-                            <label for="description">Текст (Ру)</label>
-                            <textarea class="form-control" name="description_ru" id="description" rows="10"></textarea>
+                            <label for="header_ru">topshirishi kerak bolgan reja</label>
+                            <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="работа">
                         </div>
                         <div class="form-group">
-                            <label for="description">Текст (en)</label>
-                            <textarea class="form-control" name="description_en" id="description" rows="10"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Текст (uz)</label>
-                            <textarea class="form-control" name="description_uz" id="description" rows="10"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="img">Добавьте рисунок <b><i>РАЗМЕР РИСУНОК:(600x300)</i></b></label>
-                            <input type="file" name="img" class="form-control" id="img">
+                            <label for="header_ru">topshirgani</label>
+                            <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="работа">
                         </div>
 
 

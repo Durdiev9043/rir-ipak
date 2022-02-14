@@ -11,9 +11,15 @@
                 <li class="nav-item {{  request()->routeIs('admin.region.index') ? 'active' : '' }}">
                     <a href="{{route('admin.region.index')}}">
                         <i class="fas fa-user"></i>
-                        <p>tumanlar</p>
+                        <p>Туманлар</p>
                     </a>
                 </li>
+{{--                <li class="nav-item {{  request()->routeIs('admin.kk.index') ? 'active' : '' }}">--}}
+{{--                    <a href="{{route('admin.kk.index')}}">--}}
+{{--                        <i class="fas fa-user"></i>--}}
+{{--                        <p>klasterlar</p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
             </ul>
 

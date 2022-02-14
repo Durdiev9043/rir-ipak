@@ -19,9 +19,9 @@ class CreateStaffTable extends Migration
             $table->unsignedBigInteger('village_id');
             $table->unsignedBigInteger('region_id');
             $table->string('passport')->nullable()->unique();
-            $table->integer('inn')->nullable()->unique();
+            $table->BigInteger('inn')->nullable()->unique();
             $table->float('algan_qutisi')->nullable();
-            $table->float('olgan_gr');
+            $table->float('olgan_gr')->nullable();
             $table->float('topshirish_rejasi')->nullable();
             $table->float('topshirgani')->nullable();
             $table->timestamps();

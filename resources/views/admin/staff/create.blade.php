@@ -24,7 +24,15 @@
                     <form action="{{route('admin.staff.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
+                        <div class="form-group">
+                            <label for="number">maxallani tanlang</label>
+                            <select class="custom-select" id="price_id" name="region_id">
 
+                                @foreach($regions as $region)
+                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="number">maxallani tanlang</label>
                             <select class="custom-select" id="price_id" name="village_id">

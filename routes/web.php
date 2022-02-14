@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\KlastrController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\VillageController;
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\UsersController;
 use \App\Http\Controllers\RegionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,7 @@ use \App\Http\Controllers\RegionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -29,11 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users',UsersController::class);
+    Route::resource('klaster',KlastrController::class);
     Route::resource('region',RegionController::class);
     Route::resource('village',VillageController::class);
     Route::resource('staff',StaffController::class);
-    Route::post('driver',function ($id){
-        $x=\App\Models\Staff::where('village_id','=',$id);
-        return $x->sum('village_id');
-    } )->name('driver');
+
 });

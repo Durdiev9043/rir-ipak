@@ -21,17 +21,17 @@
                         <thead>
                         <tr>
 
-                            <th  scope="col">ismi familyasi</th>
-                            <th  scope="col">passport</th>
-                            <th  scope="col">inn</th>
-                            <th  scope="col">olgan qutisi</th>
-                            <th  scope="col">olgan gr</th>
-                            <th  scope="col">topshirish rejasi</th>
-                            <th  scope="col">topshirgani</th>
+                            <th  scope="col">Ф.И.Ш</th>
+                            <th  scope="col">пасспорт</th>
+                            <th  scope="col">инн</th>
+                            <th  scope="col">кути сони</th>
+                            <th  scope="col">гр</th>
+                            <th  scope="col">режа</th>
+                            <th  scope="col">ҳақиқатда топширди</th>
                             <th  scope="col">Действие</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody>@dd($staffes)
                             @foreach($staffes as $staff)
                                 <tr>
 

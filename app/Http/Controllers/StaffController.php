@@ -9,82 +9,45 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function create()
     {
-        $villages=Village:all();
-        return view('admin.staff.create',['villages'=>$villages]);
+        $villages=Village::all();
+        $regions=Region::all();
+        return view('admin.staff.create',['villages'=>$villages,'regions'=>$regions]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         Staff::create($request->all());
-        return redirect()->back();
+        return redirect()->route('admin.region.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Staff $staff)
     {
-        //
+        return view('admin.staff.edit',['staff'=>$staff]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request,Staff $staff)
     {
-        //
+        
+        $staff->update($request->all());
+        return redirect()->route('admin.region.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  Staff $staff
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Staff $staff)
     {
         $staff->delete();
-        return redirect()->route('admin.staff.index');
+        return redirect()->back();
     }
 }

@@ -27,7 +27,11 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/atlantis.min.css')}}">
-
+    <style>
+        td{
+            padding: 0px 10px;
+        }
+    </style>
 
 
 </head>
@@ -66,8 +70,8 @@
     <div class="main-panel">
         <div class="content">
 
-            <div class="page-inner py-5">
-                
+            <div class=" ">
+
                 @yield('content')
 
             </div>

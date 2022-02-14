@@ -15,7 +15,7 @@ class RegionSeeder extends Seeder
     public function run()
     {
         DB::table('regions')->insert([
-            ['id'=>1,'name'=>'Урганч щ'],
+            ['id'=>1,'name'=>'Урганч'],
             ['id'=>2,'name'=>'Боғот'],
             ['id'=>3,'name'=>'Гурлан'],
             ['id'=>4,'name'=>'Қўшкўпир'],
@@ -25,7 +25,6 @@ class RegionSeeder extends Seeder
             ['id'=>8,'name'=>'Шовот'],
             ['id'=>9,'name'=>'Янгиариқ'],
             ['id'=>10,'name'=>'Янгибозор'],
-            ['id'=>11,'name'=>'Урганч']
         ]);
     }
 }
