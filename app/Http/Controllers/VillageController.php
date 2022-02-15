@@ -16,10 +16,10 @@ class VillageController extends Controller
     }
 
     public function create()
-    {$regions=Region::all();
+    {
+        $regions=Region::all();
         return view('admin.village.create',['regions'=>$regions]);
     }
-
 
     public function store(Request $request)
     {
@@ -28,27 +28,22 @@ class VillageController extends Controller
         return redirect()->route('admin.region.index');
     }
 
-
     public function show($id)
     {
         $staffes=Staff::all()->where('village_id','=',$id);
-        dd($staffes);
         return view('admin.staff.index',['staffes'=>$staffes]);
     }
-
 
     public function edit(Village $village)
     {
         return view('admin.village.edit',['village'=>$village]);
     }
 
-
     public function update(Request $request,Village $village)
     {
         $village->update($request->all());
         return redirect()->route('admin.region.index');
     }
-
 
     public function destroy(Village $village)
     {

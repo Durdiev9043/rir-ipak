@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\klaster;
 use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
@@ -22,59 +23,27 @@ class RegionController extends Controller
         return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $villages=Village::all()->where('region_id','=',$id);
         $staffes=Staff::all();
-        
         return view('admin.village.index',['villages'=>$villages,'staffes'=>$staffes]);
-
-//        $xz = DB::table('staff')->select([
-//            'staff.village_id','olgan_gr'
-//        ])
-//            ->join('staff', 'village_id', '=', 'villages.id')
-//            ->where('staff.village_id','=','villages_id')
-//            ->get();
-//
-       
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Region $region)
     {
-        //
+        $klasters=klaster::all();
+        return view('admin.region.edit',['region'=>$region,'klasters'=>$klasters]);
     }
 
     /**

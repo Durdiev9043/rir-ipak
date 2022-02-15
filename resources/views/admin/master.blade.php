@@ -31,6 +31,9 @@
         td{
             padding: 0px 10px;
         }
+        th{
+            padding: 10px 5px !important;
+        }
     </style>
 
 

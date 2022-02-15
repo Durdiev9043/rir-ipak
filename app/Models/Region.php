@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
-    protected $fillable=['name'];
+    protected $fillable=['name','klaster_id'];
+
+    public function klaster(){
+        return $this->belongsTo(Klaster::class);
+    }
 }

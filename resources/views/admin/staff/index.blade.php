@@ -11,37 +11,43 @@
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Добавить сотрудники
+                            Добавить кошиш
                         </a>
                     </div>
                 </div>
                 <hr>
                 <div class="card-body">
-                    <table width="90%" class="table  table-bordered">
+                    <table width="90%" class="table-bordered table-striped" id="mytable">
                         <thead>
                         <tr>
 
                             <th  scope="col">Ф.И.Ш</th>
                             <th  scope="col">пасспорт</th>
                             <th  scope="col">инн</th>
+                            <th  scope="col">ШЖБПТ</th>
                             <th  scope="col">кути сони</th>
                             <th  scope="col">гр</th>
                             <th  scope="col">режа</th>
                             <th  scope="col">ҳақиқатда топширди</th>
+                            <th  scope="col">контур</th>
+                            <th  scope="col">га</th>
                             <th  scope="col">Действие</th>
                         </tr>
                         </thead>
-                        <tbody>@dd($staffes)
+                        <tbody>
                             @foreach($staffes as $staff)
                                 <tr>
 
                                     <td >{{$staff->fullname}}</td>
                                     <td>{{$staff->passport}}</td>
                                     <td>{{$staff->inn}}</td>
+                                    <td>{{$staff->jshir}}</td>
                                     <td>{{$staff->algan_qutisi}}</td>
                                     <td>{{$staff->olgan_gr}}</td>
                                     <td>{{$staff->topshirish_rejasi}}</td>
                                     <td>{{$staff->topshirgani}}</td>
+                                    <td>{{$staff->kontur}}</td>
+                                    <td>{{$staff->maydon}}</td>
                                     <td>
                                         <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
                                             @csrf
@@ -67,6 +73,11 @@
         </div>
     </div>
 
-
+    <script src="{{asset('/assets/js/core/jquery.3.2.1.min.js')}}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#mytable').DataTable();
+        } );
+    </script>
 @endsection
 

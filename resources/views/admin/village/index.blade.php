@@ -6,19 +6,19 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-9"><h1 class="card-title">махаллар</h1></div>
+                    <div class="col-9"><h1 class="card-title">махалалар</h1></div>
                     <div class="col-md-1">
                         <a class="btn btn-primary" href="{{route('admin.village.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Добавить
+                            махала кошиш
                         </a>
                     </div>
                 </div>
                 <hr>
                 <div class="">
-                    <table class="table-bordered table-striped" id="mytable">
+                    <table width="90%" class="table-bordered table-striped" id="mytable">
                         <thead>
                         <tr rowspan="2">
                             <th rowspan="2"  >Туман номи</th>

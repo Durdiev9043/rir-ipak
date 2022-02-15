@@ -44,32 +44,44 @@
                         </div>
                         <div class="form-group">
                             <label for="header_ru">имя</label>
-                            <input type="text" name="fullname" class="form-control" id="header_ru" placeholder="toliq ism familya">
+                            <input type="text" name="fullname" class="form-control" id="header_ru" placeholder="имя">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">passport seria va raqami</label>
-                            <input type="text" name="passport" class="form-control" id="header_ru" placeholder="фамиля">
+                            <label for="header_ru">Пас.сер.</label>
+                            <input type="text" name="passport" class="form-control" id="header_ru" placeholder="Пас.сер.">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">inn</label>
-                            <input type="text" name="inn" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">ИНН</label>
+                            <input type="text" name="inn" class="form-control" id="header_ru" placeholder="ИНН">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">olgan_qutisi</label>
-                            <input type="text" name="algan_qutisi" class="form-control" id="header_ru">
+                            <label for="header_ru">кути</label>
+                            <input type="text" name="algan_qutisi" placeholder="кути" class="form-control" id="header_ru">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">olgan_gr</label>
-                            <input type="text" name="olgan_gr" class="form-control" id="header_ru">
+                            <label for="header_ru">ШЖБПТ</label>
+                            <input type="text" name="jshir" placeholder="ШЖБПТ" class="form-control" id="header_ru">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">гр</label>
+                            <input type="text" placeholder="гр" name="olgan_gr" class="form-control" id="header_ru">
                         </div>
 
                         <div class="form-group">
-                            <label for="header_ru">topshirishi kerak bolgan reja</label>
-                            <input type="text" name="topshirish_rejasi" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">Шарт</label>
+                            <input type="text" name="topshirish_rejasi" class="form-control" id="header_ru" placeholder="Шарт">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">topshirgani</label>
                             <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="работа">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">га</label>
+                            <input type="text" name="maydon" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">контур</label>
+                            <input type="text" name="kontur" class="form-control" id="header_ru" placeholder="га">
                         </div>
 
 

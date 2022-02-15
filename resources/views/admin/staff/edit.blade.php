@@ -29,7 +29,7 @@
                             <label for="number">maxallani tanlang</label>
                             <select class="custom-select" id="price_id" name="region_id">
                                     <option value="{{$staff->region->id}}">{{$staff->region->name}}</option>
-                                
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -37,37 +37,48 @@
                             <select class="custom-select" id="price_id" name="village_id">
 
                                     <option value="{{$staff->village->id}}">{{$staff->village->name}}</option>
-                             
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="header_ru">имя</label>
-                            <input type="text" name="fullname" value="{{$staff->fullname}}" class="form-control" id="header_ru" placeholder="toliq ism familya">
+                            <input type="text" name="fullname" value="{{$staff->fullname}}" class="form-control" id="header_ru" placeholder="имя">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">passport seria va raqami</label>
-                            <input type="text" name="passport" value="{{$staff->passport}}" class="form-control" id="header_ru" placeholder="фамиля">
+                            <label for="header_ru">Пас.сер.</label>
+                            <input type="text" name="passport" value="{{$staff->passport}}" class="form-control" id="header_ru" placeholder="Пас.сер.">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">inn</label>
-                            <input type="text" name="inn" value="{{$staff->inn}}" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">ИНН</label>
+                            <input type="text" name="inn" value="{{$staff->inn}}" class="form-control" id="header_ru" placeholder="ИНН">
+                        </div><div class="form-group">
+                            <label for="header_ru">ШЖБПТ</label>
+                            <input type="text" name="jshir" value="{{$staff->jshir}}" class="form-control" id="header_ru" placeholder="работа">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">olgan_qutisi</label>
+                            <label for="header_ru">кути</label>
                             <input type="text" name="algan_qutisi" value="{{$staff->algan_qutisi}}" class="form-control" id="header_ru">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">olgan_gr</label>
+                            <label for="header_ru">гр</label>
                             <input type="text" name="olgan_gr" value="{{$staff->olgan_gr}}" class="form-control" id="header_ru">
                         </div>
 
                         <div class="form-group">
-                            <label for="header_ru">topshirishi kerak bolgan reja</label>
-                            <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">Шарт</label>
+                            <input type="text" name="topshirish_rejasi" value="{{$staff->topshirish_rejasi}}" class="form-control" id="header_ru" placeholder="Шарт">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">topshirgani</label>
+                            <label for="header_ru">ҳақиқатда топширди</label>
                             <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="работа">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">га</label>
+                            <input type="text" name="maydon" value="{{$staff->maydon}}" class="form-control" id="header_ru" placeholder="га">
+                        </div>
+                        <div class="form-group">
+                            <label for="header_ru">контур</label>
+                            <input type="text" name="kontur" value="{{$staff->kontur}}" class="form-control" id="header_ru" placeholder="контур">
                         </div>
 
 

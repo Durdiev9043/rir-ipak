@@ -19,7 +19,13 @@ class CreateStaffTable extends Migration
             $table->unsignedBigInteger('village_id');
             $table->unsignedBigInteger('region_id');
             $table->string('passport')->nullable()->unique();
+            $table->integer('phone')->nullable();
             $table->BigInteger('inn')->nullable()->unique();
+            $table->BigInteger('jshir')->nullable()->unique();
+            $table->BigInteger('kontur')->nullable()->unique();
+            $table->BigInteger('toladi')->nullable()->unique();
+            $table->integer('maydon')->nullable()->unique();
+            $table->string('ekin_turi')->nullable()->unique();
             $table->float('algan_qutisi')->nullable();
             $table->float('olgan_gr')->nullable();
             $table->float('topshirish_rejasi')->nullable();

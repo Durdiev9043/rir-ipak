@@ -16,17 +16,19 @@
                             <th rowspan="2"  >Туман номи</th>
                             <th rowspan="2"  >Тумандаги касанчилар сони</th>
                             <th  colspan="4">Пилла топшириши</th>
+                            <th  colspan="3">Дебет-Кредет</th>
                             <th rowspan="2" >Действие</th>
 
                         </tr>
                         <tr>
-
-
-
                             <th  >режа</th>
                             <th  >ҳақиқатда топширди</th>
                             <th >фоиз,%</th>
                             <th  >фарқи (+/-)</th>
+                            <th>Жарима (минг сўм)</th>
+                            <th>Тўлади (минг сўм)</th>
+                            <th>Қолди (минг сўм)</th>
+
 
                         </tr>
                         </thead>
@@ -45,6 +47,9 @@
                                     $topshirgani=0;
                                     $x=0;
                                     $farqi=0;
+                                    $jarima=0;
+                                    $toladi=0;
+                                    $qoldi=0;
                                         foreach ($staffes as $staff) {
                                             if ($staff->village_id==$region->id){
                                                 $soni=$soni+1;
@@ -53,6 +58,9 @@
                                                 $topshirgani=$topshirgani+($staff->topshirgani);
                                                 $x=($topshirgani *100)/$topshirish_rejasi;
                                                 $farqi=$topshirgani-$topshirish_rejasi;
+                                                $jarima=$farqi*22;
+                                                $toladi=$toladi+($staff->toladi);
+                                                $qoldi=$toladi-$jarima;
                                             };
 
                                         };
@@ -70,9 +78,18 @@
                                 <td>
                                     {{ $x }}
                                </td>
-<td>
-    {{$farqi}}
-</td>
+                                <td>
+                                    {{$farqi}}
+                                </td>
+                                <td>
+                                    {{$jarima}}
+                                </td>
+                                <td>
+                                    {{$toladi}}
+                                </td>
+                                <td>
+                                    {{$qoldi}}
+                                </td>
                                <td>
                                 <form action="{{ route('admin.region.destroy',$region ->id) }}" method="POST">
                                     @csrf
