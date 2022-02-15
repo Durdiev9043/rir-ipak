@@ -5,13 +5,13 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-9"><h1 class="card-title">сотрудники</h1></div>
+                    <div class="col-9"><h1 class="card-title">Кластер</h1></div>
                     <div class="col-md-1">
                         <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Добавить сотрудники
+                            Кластер кошиш
                         </a>
                     </div>
                 </div>
