@@ -21,8 +21,8 @@
                         <thead>
                         <tr>
 
-                            <th  scope="col">ismi familyasi</th>
-                            
+                            <th  scope="col">Номи</th>
+                            <th  scope="col">Тел:</th>
                             <th  scope="col">Действие</th>
                         </tr>
                         </thead>
@@ -31,7 +31,8 @@
                                 <tr>
 
                                     <td >{{$klaster->name}}</td>
-                                   
+                                    <td >{{$klaster->phone}}</td>
+
                                     <td>
                                         <form action="{{ route('admin.klaster.destroy',$klaster ->id) }}" method="POST">
                                             @csrf

@@ -17,10 +17,12 @@
                     </div>
                 </div>
                 <hr>
+                @foreach($users as $user)
                 <div class="card-body">
                     <h4>Имя: {{$user->name}}</h4>
                     <h4>Email: {{$user->email}}</h4>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

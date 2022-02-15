@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Добавить сотрудники</h1></div>
+                    <div class="col-10"><h1 class="card-title">Касанчилар</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -25,7 +25,7 @@
                           enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="number">maxallani tanlang</label>
+                            <label for="number">туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
 
                                 @foreach($regions as $region)
@@ -34,7 +34,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="number">maxallani tanlang</label>
+                            <label for="number">махалла</label>
                             <select class="custom-select" id="price_id" name="village_id">
 
                                 @foreach($villages as $village)
@@ -72,8 +72,8 @@
                             <input type="text" name="topshirish_rejasi" class="form-control" id="header_ru" placeholder="Шарт">
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">topshirgani</label>
-                            <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="работа">
+                            <label for="header_ru">ҳақиқатда топширди</label>
+                            <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">га</label>

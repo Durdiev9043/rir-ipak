@@ -5,13 +5,13 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-9"><h1 class="card-title">сотрудники</h1></div>
+                    <div class="col-9"><h1 class="card-title">Касанчилар</h1></div>
                     <div class="col-md-1">
                         <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Добавить кошиш
+                             кошиш
                         </a>
                     </div>
                 </div>
@@ -76,7 +76,21 @@
     <script src="{{asset('/assets/js/core/jquery.3.2.1.min.js')}}"></script>
     <script>
         $(document).ready( function () {
-            $('#mytable').DataTable();
+            $('#mytable').DataTable({
+                "language": {
+                    "lengthMenu": "_MENU_",
+                    "zeroRecords": "Касаначи қошинг",
+                    "info": "_PAGE_ of _PAGES_",
+                    "infoEmpty": " ",
+                    "search":"қидириш:",
+                    "paginate": {
+                        "first": "биринчи",
+                        "previous": "олдинги",
+                        "next": "кейинки",
+                        "last": "охирги"
+                    },
+                }
+            });
         } );
     </script>
 @endsection

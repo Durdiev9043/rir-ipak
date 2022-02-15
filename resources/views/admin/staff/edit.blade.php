@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Добавить сотрудники</h1></div>
+                    <div class="col-10"><h1 class="card-title">Касанчилар</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -26,14 +26,14 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="number">maxallani tanlang</label>
+                            <label for="number">туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
                                     <option value="{{$staff->region->id}}">{{$staff->region->name}}</option>
 
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="number">maxallani tanlang</label>
+                            <label for="number">махалла</label>
                             <select class="custom-select" id="price_id" name="village_id">
 
                                     <option value="{{$staff->village->id}}">{{$staff->village->name}}</option>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group">
                             <label for="header_ru">ҳақиқатда топширди</label>
-                            <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="работа">
+                            <input type="text" name="topshirgani" value="{{$staff->topshirgani}}" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
                         <div class="form-group">
                             <label for="header_ru">га</label>

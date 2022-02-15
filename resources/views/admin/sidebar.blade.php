@@ -17,7 +17,7 @@
                 <li class="nav-item {{  request()->routeIs('admin.klaster.index') ? 'active' : '' }}">
                     <a href="{{route('admin.klaster.index')}}">
                         <i class="fas fa-user"></i>
-                        <p>klasterlar</p>
+                        <p>Кластер</p>
                     </a>
                 </li>
 

@@ -24,7 +24,7 @@ class RegionSeeder extends Seeder
             ['id'=>7,'klaster_id'=>'1','name'=>'Хонқа'],
             ['id'=>8,'klaster_id'=>'1','name'=>'Шовот'],
             ['id'=>9,'klaster_id'=>'1','name'=>'Янгиариқ'],
-            ['id'=>10,'`klaster_id`'=>'1','name'=>'Янгибозор'],
+            ['id'=>10,'klaster_id`'=>'1','name'=>'Янгибозор'],
         ]);
     }
 }

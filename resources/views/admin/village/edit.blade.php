@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Добавить сотрудники</h1></div>
+                    <div class="col-10"><h1 class="card-title">махалла</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -26,14 +26,14 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label for="number">maxallani tanlang</label>
+                            <label for="number">Туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
                                     <option value="{{$village->region->id}}">{{$village->region->name}}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="header_ru">имя</label>
-                            <input type="text" name="name" class="form-control" value="{{$village->name}}" id="header_ru" placeholder="toliq ism familya">
+                            <label for="header_ru">номи</label>
+                            <input type="text" name="name" class="form-control" value="{{$village->name}}" id="header_ru" placeholder="номи">
                         </div>
 
                         <button type="submit" id="alert" class="btn btn-primary">Submit</button>

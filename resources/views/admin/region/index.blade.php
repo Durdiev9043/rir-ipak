@@ -9,7 +9,7 @@
 
                 </div>
 
-                <div class="card-body">
+                <div class="card-body overflow-auto">
                     <table width="90%" id="mytable" class="table-striped table-bordered">
                         <thead>
                         <tr rowspan="2">
@@ -17,6 +17,7 @@
                             <th rowspan="2"  >Тумандаги касанчилар сони</th>
                             <th  colspan="4">Пилла топшириши</th>
                             <th  colspan="3">Дебет-Кредет</th>
+                            <th  rowspan="2">Кластер номи</th>
                             <th rowspan="2" >Действие</th>
 
                         </tr>
@@ -90,6 +91,9 @@
                                 <td>
                                     {{$qoldi}}
                                 </td>
+                                <td>
+                                    {{$region->klaster->name}}
+                                </td>
                                <td>
                                 <form action="{{ route('admin.region.destroy',$region ->id) }}" method="POST">
                                     @csrf
@@ -117,7 +121,21 @@
     </div>
     <script>
         $(document).ready( function () {
-            $('#mytable').DataTable();
+            $('#mytable').DataTable({
+                "language": {
+                    "lengthMenu": "_MENU_",
+                    "zeroRecords": "Туман қошинг",
+                    "info": "_PAGE_ / _PAGES_",
+                    "infoEmpty": " ",
+                    "search":"қидириш:",
+                    "paginate": {
+                        "first": "биринчи",
+                        "previous": "олдинги",
+                        "next": "кейинки",
+                        "last": "охирги"
+                    },
+                }
+            });
         } );
     </script>
 

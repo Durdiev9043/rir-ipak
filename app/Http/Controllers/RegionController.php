@@ -46,16 +46,10 @@ class RegionController extends Controller
         return view('admin.region.edit',['region'=>$region,'klasters'=>$klasters]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Region $region)
     {
-        //
+        $region->update($request->all());
+        return redirect()->route('admin.region.index');
     }
 
     /**

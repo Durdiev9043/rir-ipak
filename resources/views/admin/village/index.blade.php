@@ -109,7 +109,20 @@
 <script src="{{asset('/assets/js/core/jquery.3.2.1.min.js')}}"></script>
 <script>
     $(document).ready( function () {
-    $('#mytable').DataTable();
+    $('#mytable').DataTable({
+        "language": {
+            "lengthMenu": "_MENU_",
+            "zeroRecords": "Туман қошинг",
+            "info": "_PAGE_ / _PAGES_",
+            "infoEmpty": " ",
+            "search":"қидириш:",
+            "paginate": {
+                "first": "биринчи",
+                "previous": "олдинги",
+                "next": "кейинки",
+                "last": "охирги"
+            },
+        }});
 } );
 </script>
 @endsection
