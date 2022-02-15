@@ -16,9 +16,9 @@ class CreateRegionsTable extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('klaster_id')->nullable();
+            $table->unsignedBigInteger('klaster_id');
             $table->timestamps();
-        
+
             $table->foreign('klaster_id')->references('id')->on('klasters');
         });
     }
