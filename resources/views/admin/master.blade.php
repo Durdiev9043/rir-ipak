@@ -79,17 +79,27 @@
 
         <div class="content">
 
-            <div class=" ">
+
 
                 @yield('content')
 
-            </div>
+
 
         </div>
 
     </div>
     @else
-        @yield('content')
+        <div class="main-panel">
+        <div class="content">
+
+
+
+            @yield('content')
+
+
+
+        </div>
+        </div>
     @endif
 
 
