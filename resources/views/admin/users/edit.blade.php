@@ -24,6 +24,15 @@
                     <form action="{{route('admin.users.update',$user)}}" method="POST" accept-charset="UTF-8">
                         @csrf
                         @method('PUT')
+                        <div class="form-group">
+                            <label for="header_ru">tuman:</label>
+
+                            <select class="custom-select" name="role" id="">
+                                @foreach($regions as $region)
+                                    <option class="form-control" value="{{$region->id}}">{{$region->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     <div class="form-group">
                         <label for="name">Имя</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Имя" value="{{$user->name}}">

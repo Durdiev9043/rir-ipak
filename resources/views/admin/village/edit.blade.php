@@ -21,16 +21,12 @@
                     @endif
 
 
-                    <form action="{{route('admin.klaster.update',$village->id)}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.village.update',$village->id)}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                        <div class="form-group">
-                            <label for="number">Туман</label>
-                            <select class="custom-select" id="price_id" name="region_id">
-                                    <option value="{{$village->region->id}}">{{$village->region->name}}</option>
-                            </select>
-                        </div>
+                            <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
+
                         <div class="form-group">
                             <label for="header_ru">номи</label>
                             <input type="text" name="name" class="form-control" value="{{$village->name}}" id="header_ru" placeholder="номи">

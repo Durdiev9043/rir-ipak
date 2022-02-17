@@ -24,6 +24,7 @@
                     <form action="{{route('admin.staff.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
+                        @if(\Illuminate\Support\Facades\Auth::user()->role==0)
                         <div class="form-group">
                             <label for="number">туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
@@ -42,6 +43,20 @@
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                            <div class="form-group">
+                            <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
+                            <select name="village_id" class="custom-select" id="">
+                            @foreach($villages as $village)
+                                @if($village->region_id==\Illuminate\Support\Facades\Auth::user()->role)
+                                    <option value="{{$village->id}}">{{$village->name}}</option>
+                                @endif
+                            @endforeach
+                            </select>
+                            </div>
+
+
+                        @endif
                         <div class="form-group">
                             <label for="header_ru">имя</label>
                             <input type="text" name="fullname" class="form-control" id="header_ru" placeholder="имя">

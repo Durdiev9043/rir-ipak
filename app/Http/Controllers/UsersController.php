@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Region;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $regions=Region::all();
+        return view('admin.users.create',['regions'=>$regions]);
     }
 
     /**
@@ -33,7 +35,21 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+        $role=$request->role;
+
+        $password=Hash::make($request->password);
+        User::create([
+            'name' => $request->name,
+            'email' =>$request->email,
+            'password' => $password
+        ]);
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -55,7 +71,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit',compact('user'));
+        $regions=Region::all();
+        return view('admin.users.edit',compact('user','regions'));
     }
 
     /**

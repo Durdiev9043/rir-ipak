@@ -25,6 +25,7 @@
                           enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        @if(\Illuminate\Support\Facades\Auth::user()->role==0)
                         <div class="form-group">
                             <label for="number">туман</label>
                             <select class="custom-select" id="price_id" name="region_id">
@@ -40,6 +41,10 @@
 
                             </select>
                         </div>
+                        @else
+                            <input type="hidden" name="village_id" value="{{$staff->village->id}}">
+                            <input type="hidden" name="region_id" value="{{$staff->region->id}}">
+                        @endif
                         <div class="form-group">
                             <label for="header_ru">имя</label>
                             <input type="text" name="fullname" value="{{$staff->fullname}}" class="form-control" id="header_ru" placeholder="имя">

@@ -43,10 +43,11 @@
     <div class="main-header">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="blue">
-
+            @if(\Illuminate\Support\Facades\Auth::user()->role==0)
             <a href="{{route('admin.home')}}" class="logo">
                 <p class="navbar-brand" style="color: white">Админ панель</p>
             </a>
+
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -59,6 +60,7 @@
                     <i class="icon-menu"></i>
                 </button>
             </div>
+                @endif
         </div>
         <!-- End Logo Header -->
 
@@ -68,9 +70,13 @@
     </div>
 
     <!-- Sidebar -->
-@include('admin.sidebar')
+    @if(\Illuminate\Support\Facades\Auth::user()->role==0)
+        @include('admin.sidebar')
+    @endif
 <!-- End Sidebar -->
+    @if(\Illuminate\Support\Facades\Auth::user()->role==0)
     <div class="main-panel">
+
         <div class="content">
 
             <div class=" ">
@@ -80,7 +86,11 @@
             </div>
 
         </div>
+
     </div>
+    @else
+        @yield('content')
+    @endif
 
 
 </div>

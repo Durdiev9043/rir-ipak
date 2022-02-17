@@ -24,12 +24,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('login',[\App\Http\Controllers\Auth\LoginController::class,'login'])->name('login.func');
 
-
-Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users',UsersController::class);
     Route::resource('klaster', KlasterControllerAlias::class);
@@ -38,3 +38,4 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('staff',StaffController::class);
 
 });
+

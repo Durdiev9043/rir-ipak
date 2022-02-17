@@ -25,7 +25,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         Staff::create($request->all());
-        return redirect()->route('admin.region.index');
+        return redirect()->route('admin.region.show',$request->region_id);
     }
 
     public function show($id)
@@ -40,9 +40,9 @@ class StaffController extends Controller
 
     public function update(Request $request,Staff $staff)
     {
-        
+
         $staff->update($request->all());
-        return redirect()->route('admin.region.index');
+        return redirect()->route('admin.region.show',$request->region_id);
     }
 
     public function destroy(Staff $staff)
