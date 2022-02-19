@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\klaster;
+use App\Models\Region;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class KlasterController extends Controller
 {
-  
+
     public function index()
     {
         $klasteres=Klaster::all();
-        return view('admin.klaster.index',['klasteres'=>$klasteres]);
+        $regions=Region::all();
+        $staffs=Staff::all();
+        return view('admin.klaster.index',['klasteres'=>$klasteres,'staffs'=>$staffs,'regions'=>$regions]);
     }
 
 
@@ -26,7 +30,7 @@ class KlasterController extends Controller
         return redirect()->route('admin.klaster.index');
     }
 
-   
+
     public function show($id)
     {
         //
@@ -40,7 +44,7 @@ class KlasterController extends Controller
     public function update(Request $request, Klaster $klaster)
     {
         $klaster->update($request->all());
-        return redirect()->route('admin.klaster.index');       
+        return redirect()->route('admin.klaster.index');
     }
 
     public function destroy(Klaster $klaster)

@@ -25,7 +25,7 @@
                           enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                            <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
+                            <input type="hidden" name="region_id" value="{{$village->region_id}}">
 
                         <div class="form-group">
                             <label for="header_ru">номи</label>

@@ -24,7 +24,19 @@
                     <form action="{{route('admin.village.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
+                        @if(\Illuminate\Support\Facades\Auth::user()->role==0)
+                            <div class="form-group">
+                                <label for="number">махалла</label>
+                                <select class="custom-select" id="price_id" name="region_id">
+
+                                    @foreach($regions as $region)
+                                        <option value="{{$region->id}}">{{$region->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @else
                         <input type="hidden" name="region_id" value="{{\Illuminate\Support\Facades\Auth::user()->role}}">
+                        @endif
                         <div class="form-group">
                             <label for="header_ru">номи</label>
                             <input type="text" name="name" class="form-control" id="header_ru" placeholder="номи">

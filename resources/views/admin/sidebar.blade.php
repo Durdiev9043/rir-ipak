@@ -23,6 +23,14 @@
                         <p>Кластер</p>
                     </a>
                 </li>
+                @else
+                    <li class="nav-item ">
+                        <a href="{{route('admin.region.show',\Illuminate\Support\Facades\Auth::user()->role)}}">
+                            <i class="fas fa-user"></i>
+                            <p>Бош сахифа</p>
+                        </a>
+                    </li>
+
                 @endif
             </ul>
 

@@ -60,6 +60,23 @@
                     <i class="icon-menu"></i>
                 </button>
             </div>
+            @else
+                <a href="#" class="logo">
+                    <p class="navbar-brand" style="color: white">{{Auth::user()->name}}</p>
+                </a>
+
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+                        data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="icon-menu"></i>
+					</span>
+                </button>
+                <button class="topbar-toggler more"><i class="icon-options-vertical"></i></button>
+                <div class="nav-toggle">
+                    <button class="btn btn-toggle toggle-sidebar">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
                 @endif
         </div>
         <!-- End Logo Header -->
@@ -70,38 +87,17 @@
     </div>
 
     <!-- Sidebar -->
-    @if(\Illuminate\Support\Facades\Auth::user()->role==0)
+
         @include('admin.sidebar')
-    @endif
+
 <!-- End Sidebar -->
-    @if(\Illuminate\Support\Facades\Auth::user()->role==0)
+
+{{--    @if(\Illuminate\Support\Facades\Auth::user()->role==0)--}}
     <div class="main-panel">
-
         <div class="content">
-
-
-
                 @yield('content')
-
-
-
         </div>
-
     </div>
-    @else
-        <div class="main-panel">
-        <div class="content">
-
-
-
-            @yield('content')
-
-
-
-        </div>
-        </div>
-    @endif
-
 
 </div>
 <!--   Core JS Files   -->

@@ -40,10 +40,8 @@ class LoginController extends Controller
     ]);
     $user=User::where('email',$request->email)->first();
 
-        $role=$user->role;
-
-
     if (Auth::attempt($request->only('email','password'))){
+        $role=$user->role;
         if ($role>0){
         return redirect()->route('admin.region.show',$user->role);
         }else{

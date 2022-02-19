@@ -17,13 +17,20 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                    <table width="90%" class="table  table-bordered">
+                    <table width="90%" id="data" class="table-striped table-bordered">
                         <thead>
-                        <tr>
+                        <tr class="table-light border-bottom border-secondary">
+                            <th  rowspan="2" scope="col">Номи</th>
+                            <th  rowspan="2" scope="col">Тел:</th>
+                            <th class="border-bottom " colspan="4" scope="col">касаначилари</th>
+                            <th rowspan="2" scope="col">Действие</th>
+                        </tr>
+                        <tr class="table-light">
+                            <th  scope="col">режа</th>
+                            <th scope="col">амалда</th>
+                            <th scope="col">фарқи, (+,-)</th>
+                            <th  scope="col">фоиз, %</th>
 
-                            <th  scope="col">Номи</th>
-                            <th  scope="col">Тел:</th>
-                            <th  scope="col">Действие</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -32,6 +39,38 @@
 
                                     <td >{{$klaster->name}}</td>
                                     <td >{{$klaster->phone}}</td>
+                                    <?php
+                                    $soni=0;
+                                    $olgan=0;
+                                    $topshirish_rejasi=0;
+                                    $topshirgani=0;
+                                    $x=0;
+                                    $farqi=0;
+                                    $jarima=0;
+                                    $toladi=0;
+                                    $qoldi=0;
+                                    foreach ($regions as $region){
+                                        if ($region->klaster_id==$klaster->id){
+                                            foreach ($staffs as $staff){
+                                                if ($staff->region_id==$region->id){
+                                                    $soni=$soni+1;
+                                                    $olgan=$olgan+($staff->olgan_gr);
+                                                    $topshirish_rejasi=$topshirish_rejasi+($staff->topshirish_rejasi);
+                                                    $topshirgani=$topshirgani+($staff->topshirgani);
+                                                    $x=($topshirgani *100)/$topshirish_rejasi;
+                                                    $farqi=$topshirgani-$topshirish_rejasi;
+                                                    $jarima=$farqi*22;
+                                                    $toladi=$toladi+($staff->toladi);
+                                                    $qoldi=$toladi-$jarima;
+                                                };
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    <td id="reja">{{$topshirish_rejasi}}</td>
+                                    <td>{{$topshirgani}}</td>
+                                    <td>{{$farqi}}</td>
+                                    <td>{{$x}}</td>
 
                                     <td>
                                         <form action="{{ route('admin.klaster.destroy',$klaster ->id) }}" method="POST">
@@ -59,5 +98,34 @@
     </div>
 
 
+    <script type="text/javascript">
+        //jQuery.noConflict();
+        $(document).ready( function () {
+            $('#data').DataTable({
+                "language": {
+                    "lengthMenu": "_MENU_",
+                    "zeroRecords": "Касаначи қошинг",
+                    "info": "_PAGE_ / _PAGES_",
+                    "infoEmpty": " ",
+                    "search":"қидириш:",
+                    "paginate": {
+                        "first": "биринчи",
+                        "previous": "олдинги",
+                        "next": "кейинки",
+                        "last": "охирги"
+                    },
+                }
+            });
+        } );
+
+        var table = document.getElementById("data"),sumVal = 0;
+        $(table).find('tbody tr').each(function() {
+            $(this).find('#reja').each(function(i){
+                    sumVal = sumVal + parseFloat($(this).text());
+            });
+        });
+        document.getElementById("tot").innerHTML = sumVal;
+        console.log(sumVal);
+    </script>
 @endsection
 
