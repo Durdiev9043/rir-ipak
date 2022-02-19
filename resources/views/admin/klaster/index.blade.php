@@ -21,7 +21,7 @@
                         <thead>
                         <tr class="table-light border-bottom border-secondary">
                             <th  rowspan="2" scope="col">Номи</th>
-                            <th  rowspan="2" scope="col">Тел:</th>
+                            <th rowspan="2" scope="col">Туманлар</th>
                             <th class="border-bottom " colspan="4" scope="col">касаначилари</th>
                             <th rowspan="2" scope="col">Действие</th>
                         </tr>
@@ -38,7 +38,7 @@
                                 <tr>
 
                                     <td >{{$klaster->name}}</td>
-                                    <td >{{$klaster->phone}}</td>
+<td>
                                     <?php
                                     $soni=0;
                                     $olgan=0;
@@ -51,6 +51,9 @@
                                     $qoldi=0;
                                     foreach ($regions as $region){
                                         if ($region->klaster_id==$klaster->id){
+
+                                            echo $region->name." ";
+
                                             foreach ($staffs as $staff){
                                                 if ($staff->region_id==$region->id){
                                                     $soni=$soni+1;
@@ -67,6 +70,7 @@
                                         }
                                     }
                                     ?>
+</td>
                                     <td id="reja">{{$topshirish_rejasi}}</td>
                                     <td>{{$topshirgani}}</td>
                                     <td>{{$farqi}}</td>

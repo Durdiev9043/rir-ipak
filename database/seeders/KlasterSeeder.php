@@ -15,7 +15,10 @@ class KlasterSeeder extends Seeder
     public function run()
     {
         DB::table('klasters')->insert([
-            ['id'=>1,'name'=>'Klaster','phone'=>'997484390'],
+            ['id'=>1,'name'=>'"Khiva Silk Fabric" МЧЖ'],
+            ['id'=>2,'name'=>'"Xorazm Pilla Xolding" МЧЖ'],
+            ['id'=>3,'name'=>'"Bog\'ot Silk CO" МЧЖ'],
+            ['id'=>4,'name'=>'"Shovot Silk" МЧЖ'],
         ]);
     }
 }

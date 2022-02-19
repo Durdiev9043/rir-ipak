@@ -16,7 +16,6 @@ class CreateKlastersTable extends Migration
         Schema::create('klasters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
             $table->timestamps();
             $table->softdeletes();
         });
