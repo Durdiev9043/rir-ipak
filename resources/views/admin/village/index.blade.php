@@ -22,7 +22,6 @@
                         <thead>
                         <tr rowspan="2">
                             <th rowspan="2"  >Туман номи</th>
-                            <th rowspan="2"  >Тумандаги касанчилар сони</th>
                             <th  colspan="4">Пилла топшириши</th>
                             <th rowspan="2" >Действие</th>
 
@@ -43,7 +42,6 @@
                                 <td>
                                     <a href="{{route('admin.village.show',$village->id)}}">{{$village->name}}</a>
                                 </td>
-                               <td>
 
                                     <?php
                                     $soni=0;
@@ -63,8 +61,8 @@
                                             };
                                         };
                                     ?>
-                                    {{ $soni }}
-                               </td>
+
+
                                <td>
                                    {{ $topshirish_rejasi }}
                                </td>

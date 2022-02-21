@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\klaster;
+use App\Models\Farm;
+use App\Models\Klaster;
 use App\Models\Region;
 use App\Models\Staff;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class KlasterController extends Controller
         $klasteres=Klaster::all();
         $regions=Region::all();
         $staffs=Staff::all();
-        return view('admin.klaster.index',['klasteres'=>$klasteres,'staffs'=>$staffs,'regions'=>$regions]);
+        $farmes=Farm::all();
+        return view('admin.klaster.index',['klasteres'=>$klasteres,'farmes'=>$farmes,'staffs'=>$staffs,'regions'=>$regions]);
     }
 
 

@@ -15,7 +15,9 @@
                         <tr rowspan="2">
                             <th rowspan="2"  >Туман номи</th>
                             <th rowspan="2"  >Тумандаги касанчилар сони</th>
+
                             <th  colspan="4">Пилла топшириши</th>
+                            <th class="border-bottom " colspan="3" scope="col">Фермерлар</th>
 
                             <th  rowspan="2">Кластер номи</th>
                             <th rowspan="2" >Действие</th>
@@ -26,6 +28,10 @@
                             <th  >ҳақиқатда топширди</th>
                             <th >фоиз,%</th>
                             <th  >фарқи (+/-)</th>
+
+                            <th  scope="col">режа</th>
+                            <th scope="col">амалда</th>
+                            <th scope="col">фоиз, %</th>
 
 
                         </tr>
@@ -48,6 +54,11 @@
                                     $jarima=0;
                                     $toladi=0;
                                     $qoldi=0;
+
+                                    $F_olgan=0;
+                                    $F_topshirish_rejasi=0;
+                                    $F_topshirgani=0;
+                                    $y=0;
                                         foreach ($staffes as $staff) {
                                             if ($staff->region_id==$region->id){
                                                 $soni=$soni+1;
@@ -62,7 +73,18 @@
                                             };
 
                                         };
-
+                                    foreach ($farmes as $farm){
+                                        if ($farm->region_id==$region->id){
+                                            $F_olgan=$F_olgan+($farm->olgan_gr);
+                                            $F_topshirish_rejasi=$F_topshirish_rejasi+($farm->topshirish_rejasi);
+                                            $F_topshirgani=$F_topshirgani+($farm->topshirgani);
+                                            $y=($F_topshirgani *100)/$F_topshirish_rejasi;
+                                            $farqi=$topshirgani-$topshirish_rejasi;
+                                            $jarima=$farqi*22;
+                                            $toladi=$toladi+($farm->toladi);
+                                            $qoldi=$toladi-$jarima;
+                                        };
+                                        };
                                     ?>
                                     {{ $soni }}
                                </td>
@@ -79,6 +101,11 @@
                                 <td>
                                     {{$farqi}}
                                 </td>
+
+
+                                <td id="f_reja">{{$F_topshirish_rejasi}}</td>
+                                <td id="f_top">{{$F_topshirgani}}</td>
+                                <td id="f_y">{{$y}}</td>
 
 
                                 <td>

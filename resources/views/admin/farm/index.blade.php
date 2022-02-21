@@ -5,21 +5,21 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-7"><h1 class="card-title">Касанчилар</h1></div>
+                    <div class="col-7"><h1 class="card-title">Фермерлар</h1></div>
                     <div class="col-md-1 mr-5">
-                        <a class="btn btn-primary" href="{{route('admin.farm.show',$id)}}">
+                        <a class="btn btn-primary" href="{{route('admin.village.show',$id)}}">
                             <span class="btn-label">
 
                             </span>
-                            Фермерлар рўйхати
+                            Касанчилар рўйхат
                         </a>
                     </div>
                     <div class="col-md-1 ml-4">
-                        <a class="btn btn-primary" href="{{route('admin.staff.create')}}">
+                        <a class="btn btn-primary" href="{{route('admin.farm.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
-                            Касанчи кошиш
+                            Фермер кошиш
                         </a>
                     </div>
                 </div>
@@ -29,38 +29,30 @@
                         <thead>
                         <tr>
 
-                            <th  scope="col">Ф.И.Ш</th>
-                            <th  scope="col">пасспорт</th>
-                            <th  scope="col">инн</th>
-                            <th  scope="col">ШЖБПТ</th>
+                            <th  scope="col">номи</th>
                             <th  scope="col">кути сони</th>
                             <th  scope="col">гр</th>
                             <th  scope="col">режа</th>
                             <th  scope="col">ҳақиқатда топширди</th>
-                            <th  scope="col">контур</th>
-                            <th  scope="col">га</th>
                             <th  scope="col">Действие</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($staffes as $staff)
+                            @foreach($farmes as $farm)
                                 <tr>
 
-                                    <td >{{$staff->fullname}}</td>
-                                    <td>{{$staff->passport}}</td>
-                                    <td>{{$staff->inn}}</td>
-                                    <td>{{$staff->jshir}}</td>
-                                    <td>{{$staff->algan_qutisi}}</td>
-                                    <td>{{$staff->olgan_gr}}</td>
-                                    <td>{{$staff->topshirish_rejasi}}</td>
-                                    <td>{{$staff->topshirgani}}</td>
-                                    <td>{{$staff->kontur}}</td>
-                                    <td>{{$staff->maydon}}</td>
+                                    <td >{{$farm->name}}</td>
+
+                                    <td>{{$farm->algan_qutisi}}</td>
+                                    <td>{{$farm->olgan_gr}}</td>
+                                    <td>{{$farm->topshirish_rejasi}}</td>
+                                    <td>{{$farm->topshirgani}}</td>
+
                                     <td>
-                                        <form action="{{ route('admin.staff.destroy',$staff ->id) }}" method="POST">
+                                        <form action="{{ route('admin.farm.destroy',$farm ->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.staff.edit',$staff->id) }}">
+                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.farm.edit',$farm->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>

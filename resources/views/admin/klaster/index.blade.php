@@ -23,6 +23,7 @@
                             <th  rowspan="2" scope="col">Номи</th>
                             <th rowspan="2" scope="col">Туманлар</th>
                             <th class="border-bottom " colspan="4" scope="col">касаначилари</th>
+                            <th class="border-bottom " colspan="3" scope="col">Фермерлар</th>
                             <th rowspan="2" scope="col">Действие</th>
                         </tr>
                         <tr class="table-light">
@@ -31,14 +32,18 @@
                             <th scope="col">фарқи, (+,-)</th>
                             <th  scope="col">фоиз, %</th>
 
+                            <th  scope="col">режа</th>
+                            <th scope="col">амалда</th>
+                            <th scope="col">фоиз, %</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($klasteres as $klaster)
-                                <tr>
+                        @foreach($klasteres as $klaster)
+                            <tr>
 
-                                    <td >{{$klaster->name}}</td>
-<td>
+                                <td >{{$klaster->name}}</td>
+                                <td>
                                     <?php
                                     $soni=0;
                                     $olgan=0;
@@ -49,6 +54,11 @@
                                     $jarima=0;
                                     $toladi=0;
                                     $qoldi=0;
+
+                                    $F_olgan=0;
+                                    $F_topshirish_rejasi=0;
+                                    $F_topshirgani=0;
+                                    $y=0;
                                     foreach ($regions as $region){
                                         if ($region->klaster_id==$klaster->id){
 
@@ -66,34 +76,55 @@
                                                     $toladi=$toladi+($staff->toladi);
                                                     $qoldi=$toladi-$jarima;
                                                 };
+                                            };
+                                                foreach ($farmes as $farm){
+                                                if ($farm->region_id==$region->id){
+                                                    $F_olgan=$F_olgan+($farm->olgan_gr);
+                                                    $F_topshirish_rejasi=$F_topshirish_rejasi+($farm->topshirish_rejasi);
+                                                    $F_topshirgani=$F_topshirgani+($farm->topshirgani);
+                                                    $y=($F_topshirgani *100)/$F_topshirish_rejasi;
+                                                    $farqi=$topshirgani-$topshirish_rejasi;
+                                                    $jarima=$farqi*22;
+                                                    $toladi=$toladi+($farm->toladi);
+                                                    $qoldi=$toladi-$jarima;
+                                                };
                                             }
                                         }
                                     }
                                     ?>
-</td>
-                                    <td id="reja">{{$topshirish_rejasi}}</td>
-                                    <td>{{$topshirgani}}</td>
-                                    <td>{{$farqi}}</td>
-                                    <td>{{$x}}</td>
+                                </td>
+                                <td id="k_reja">{{$topshirish_rejasi}}</td>
+                                <td id="k_top">{{$topshirgani}}</td>
+                                <td>{{$farqi}}</td>
+                                <td id="k_x">{{$x}}</td>
 
-                                    <td>
-                                        <form action="{{ route('admin.klaster.destroy',$klaster ->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.klaster.edit',$klaster->id) }}">
+
+                                <td id="f_reja">{{$F_topshirish_rejasi}}</td>
+                                <td id="f_top">{{$F_topshirgani}}</td>
+                                <td id="f_y">{{$y}}</td>
+
+{{--                                <td id="reja"></td>--}}
+{{--                                <td id="top"></td>--}}
+{{--                                <td id="foiz"></td>--}}
+
+                                <td>
+                                    <form action="{{ route('admin.klaster.destroy',$klaster ->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a class="btn btn-warning btn-sm" href="{{ route('admin.klaster.edit',$klaster->id) }}">
                                     <span class="btn-label">
                                         <i class="fa fa-pen"></i>
                                     </span>
 
-                                            </a>
+                                        </a>
 
-                                            <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
+                                        <button type="submit" class="btn btn-danger btn-sm"><span class="btn-label">
                                         <i class="fa fa-trash"></i>
                                     </span></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -121,6 +152,9 @@
                 }
             });
         } );
+        var reja=document.getElementById("k_reja").textContent+document.getElementById("f_reja").textContent;
+        document.getElementById("reja").innerHTML=reja;
+        console.log(reja)
 
         var table = document.getElementById("data"),sumVal = 0;
         $(table).find('tbody tr').each(function() {

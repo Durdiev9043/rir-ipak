@@ -49,7 +49,7 @@
                         <label for="pwd_confirm">Повторите пароль</label>
                         <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm">
                     </div>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="submit" class="btn btn-primary">сақлаш</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
                 </div>

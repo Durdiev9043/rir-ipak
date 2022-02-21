@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FarmController;
 use App\Http\Controllers\KlasterController as KlasterControllerAlias;
 use App\Http\Controllers\KlastrController;
 use App\Http\Controllers\StaffController;
@@ -36,6 +37,7 @@ Route::prefix('admin')->name('admin.')->middleware( 'auth')->group(function () {
     Route::resource('region',RegionController::class);
     Route::resource('village',VillageController::class);
     Route::resource('staff',StaffController::class);
+    Route::resource('farm',FarmController::class);
 
 });
 

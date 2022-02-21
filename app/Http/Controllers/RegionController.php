@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Farm;
 use App\Models\klaster;
 use App\Models\Staff;
 use App\Models\Village;
 use Illuminate\Http\Request;
 use App\Models\Region;
 use Illuminate\Support\Facades\DB;
+use function GuzzleHttp\Promise\all;
 
 class RegionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $regions=Region::all();
         $staffes=Staff::all();
-        return view('admin.region.index',['regions'=>$regions,'staffes'=>$staffes]);
+        $farmes=Farm::all();
+        return view('admin.region.index',['regions'=>$regions,'farmes'=>$farmes,'staffes'=>$staffes]);
     }
 
     public function create()

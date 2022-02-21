@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Касанчилар</h1></div>
+                    <div class="col-10"><h1 class="card-title">фермер қошиш</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -21,7 +21,7 @@
                     @endif
 
 
-                    <form action="{{route('admin.staff.store')}}" method="POST" accept-charset="UTF-8"
+                    <form action="{{route('admin.farm.store')}}" method="POST" accept-charset="UTF-8"
                           enctype="multipart/form-data">
                         @csrf
                         @if(\Illuminate\Support\Facades\Auth::user()->role==0)
@@ -58,25 +58,16 @@
 
                         @endif
                         <div class="form-group">
-                            <label for="header_ru">имя</label>
-                            <input type="text" name="fullname" class="form-control" id="header_ru" placeholder="имя">
+                            <label for="header_ru">номи</label>
+                            <input type="text" name="name" class="form-control" id="header_ru" placeholder="номи">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">Пас.сер.</label>
-                            <input type="text" name="passport" class="form-control" id="header_ru" placeholder="Пас.сер.">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">ИНН</label>
-                            <input type="text" name="inn" class="form-control" id="header_ru" placeholder="ИНН">
-                        </div>
+
+
                         <div class="form-group">
                             <label for="header_ru">кути</label>
                             <input type="text" name="algan_qutisi" placeholder="кути" class="form-control" id="header_ru">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">ШЖБПТ</label>
-                            <input type="text" name="jshir" placeholder="ШЖБПТ" class="form-control" id="header_ru">
-                        </div>
+
                         <div class="form-group">
                             <label for="header_ru">гр</label>
                             <input type="text" placeholder="гр" name="olgan_gr" class="form-control" id="header_ru">
@@ -90,14 +81,8 @@
                             <label for="header_ru">ҳақиқатда топширди</label>
                             <input type="text" name="topshirgani" class="form-control" id="header_ru" placeholder="ҳақиқатда топширди">
                         </div>
-                        <div class="form-group">
-                            <label for="header_ru">га</label>
-                            <input type="text" name="maydon" class="form-control" id="header_ru" placeholder="га">
-                        </div>
-                        <div class="form-group">
-                            <label for="header_ru">контур</label>
-                            <input type="text" name="kontur" class="form-control" id="header_ru" placeholder="га">
-                        </div>
+
+
 
 
 

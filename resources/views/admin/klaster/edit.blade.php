@@ -25,7 +25,7 @@
                           enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                        
+
                         <div class="form-group">
                             <label for="header_ru">номи</label>
                             <input type="text" name="name" class="form-control" value="{{$klaster->name}}" id="header_ru" placeholder="номи">
@@ -35,7 +35,7 @@
                             <input type="text" name="phone" class="form-control" value="{{$klaster->phone}}" id="header_ru" placeholder="номи">
                         </div>
 
-                        <button type="submit" id="alert" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="alert" class="btn btn-primary">сақлаш</button>
                         <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
                 </div>

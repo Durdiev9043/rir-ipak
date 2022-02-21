@@ -25,7 +25,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         Staff::create($request->all());
-        return redirect()->route('admin.region.show',$request->region_id);
+        return redirect()->route('admin.village.show',$request->village_id);
     }
 
     public function show($id)
@@ -42,7 +42,7 @@ class StaffController extends Controller
     {
 
         $staff->update($request->all());
-        return redirect()->route('admin.region.show',$request->region_id);
+        return redirect()->route('admin.village.show',$request->village_id);
     }
 
     public function destroy(Staff $staff)
